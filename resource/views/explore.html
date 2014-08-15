@@ -1,0 +1,15 @@
+<ion-view title="发现">
+	<ion-content>
+		<ion-list>
+			<ion-item ng-repeat="item in list">
+				<a class="item item-thumbnail-left" href="#/tab/exploreDetail/{{item.type}}">
+					<img ng-src="{{item.xg_file}}">
+					<h2>{{item.type | getRoomType }}</h2>
+					<p>
+						{{item.type | getRoomTypeEn }}
+					</p>
+				</a>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

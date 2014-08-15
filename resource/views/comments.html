@@ -1,0 +1,29 @@
+<ion-content>
+	<ion-refresher
+	pulling-text="下拉刷新..."
+	on-refresh="doRefresh()"></ion-refresher>
+	<div class="bar bar-header item-input-inset">
+		<label class="item-input-wrapper"> <i class="icon ion-ios7-chat placeholder-icon"></i>
+			<input type="search" placeholder="说点什么吧...">
+		</label>
+		<button class="button button-clear">
+			发表
+		</button>
+	</div>
+	<ion-list>
+		<ion-item ng-repeat="item in list">
+			<div class="item item-avatar">
+				<img src="resource/images/face.png" />
+				<h2>{{item.name}} <small>{{item.writetime}}  {{item.devicename}}</small></h2>
+				<p>
+					{{item.content}}
+				</p>
+			</div>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll
+	ng-if="moreDataCanBeLoaded()"
+	on-infinite="loadMore()"
+	distance="5%"
+	></ion-infinite-scroll>
+</ion-content>

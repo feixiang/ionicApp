@@ -1,0 +1,27 @@
+<ion-view title="我的收藏">
+	<ng-show >
+		没有资料
+	</ng-show>
+	<ion-content>
+
+		<ion-list>
+			<ion-item ng-repeat="item in list">
+				<div class="list card">
+					<div class="item-image">
+						<img class="full-image" ng-src="{{item.xg_file}}">
+					</div>
+					<div class="item item-body">
+						<p>
+							ID：{{item.CloudID}}
+						</p>
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+		<ion-infinite-scroll
+		ng-if="moreDataCanBeLoaded()"
+		on-infinite="loadMore()"
+		distance="5%"
+		></ion-infinite-scroll>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view title="精彩推荐">
+	<ion-content>
+
+		<ion-item ng-repeat="item in list">
+			<div class="list card">
+				<div class="item item-avatar">
+					<img src="resource/images/face.png">
+					<h2>{{item.designer}}</h2>
+					<p>
+						{{item.writetime}}
+					</p>
+				</div>
+				<div class="item-image">
+					<img class="full-image" ng-src="{{item.xg_file}}">
+				</div>
+				<div class="item item-body">
+					{{item.comment}}
+				</div>
+
+				<div class="item tabs tabs-secondary tabs-icon-left">
+					<a class="tab-item" ng-click="setPlanGood(item)">
+						<i class="icon ion-thumbsup"></i> Like ({{item.good_cnt}})
+					</a>
+					<a class="tab-item" >
+						<i class="icon ion-chatbox"></i> Comment  ({{item.comment_cnt}})
+					</a>
+					<a class="tab-item" ng-click="setPlanFavor(item)">
+						<i  class="icon ion-ios7-heart-outline"  ng-class="{'ion-heart':item.favor}"></i> Favor
+					</a>
+				</div>
+			</div>
+		</ion-item>
+		</ion-list>
+		<ion-infinite-scroll
+		ng-if="moreDataCanBeLoaded()"
+		on-infinite="loadMore()"
+		distance="5%"
+		></ion-infinite-scroll>
+		<ion-list>
+	</ion-content>
+</ion-view>
